@@ -7,13 +7,13 @@ OpenCode 技能 + 安装器：把中英文学术写作规范（中文标点、�
 ## 安装
 
 ```sh
-npx github:<your-github-username>/writing-standards
+npx github:liuliwang/writing-standards
 ```
 
 默认安装到 `~/.agents/skills/writing-standards/`。自定义目录：
 
 ```sh
-npx github:<your-github-username>/writing-standards --dir ~/.config/opencode/skills
+npx github:liuliwang/writing-standards --dir ~/.config/opencode/skills
 ```
 
 > 要求仓库为 public（npx 拉取 GitHub 仓库不支持私有仓库认证）。
@@ -21,7 +21,7 @@ npx github:<your-github-username>/writing-standards --dir ~/.config/opencode/ski
 ## 更新
 
 ```sh
-npx github:<your-github-username>/writing-standards --force
+npx github:liuliwang/writing-standards --force
 ```
 
 覆盖复制为最新版。
@@ -37,7 +37,7 @@ npx github:<your-github-username>/writing-standards --force
 ## 本地开发
 
 ```sh
-git clone https://github.com/<your-github-username>/writing-standards.git
+git clone https://github.com/liuliwang/writing-standards.git
 cd writing-standards
 node bin/cli.js          # 装到 ~/.agents/skills
 node bin/cli.js --dir /tmp/test-skills   # 装到试验目录
