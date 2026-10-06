@@ -1,10 +1,10 @@
 # writing-standards
 
-OpenCode 技能 + 安装器：把中英文学术写作规范（中文标点、数字用法、量和单位、中英混排、中英表达、统计结果报告、学术图表规范、论文结构与写作逻辑、GB/T 7714—2015 参考文献著录、学术诚信）安装到 AGENTS.md / CLAUDE.md 的带标记区块中，装好后持续生效、幂等可更新。
+OpenCode 技能 + 安装器：把中英文学术写作规范（中文标点、数字用法、量和单位、中英混排、中英表达、统计结果报告、学术图表规范、公式与交叉引用、论文结构与写作逻辑、GB/T 7714—2015 参考文献著录、学术诚信）安装到 AGENTS.md / CLAUDE.md 的带标记区块中，装好后持续生效、幂等可更新。
 
-内置第二个工作流——绘图与做表要求提供：在需要绘制图表或制作表格时，基于规范第 10 节（CY/T 170—2019、Springer/Elsevier/IEEE/ACS/APS/Wiley/T&F 指南、Tufte、Nature Methods Points of View、WCAG 2.1）输出针对性要求清单（规格参数、设计要求、验收清单），供任何执行者使用；本技能不代为绘图做表。
+内置第二个工作流——绘图与做表要求提供：在需要绘制图表或制作表格时，基于规范第 10～11 节（CY/T 170—2019、Springer/Elsevier/IEEE/ACS/APS/Wiley/T&F 指南、Tufte、Nature Methods Points of View、WCAG 2.1）输出针对性要求清单（规格参数、设计要求、验收清单），供任何执行者使用；本技能不代为绘图做表。
 
-规范条文依据国标、行业标准与权威手册整理（GB/T 15834—2011、GB/T 15835—2011、GB/T 7714—2015、GB/T 7713.1—2006、CY/T 154—2017、CY/T 170/171—2019、GB 3100/3101—1993、GB/T 3358.1—2009、《第一批异形词整理表》、APA 7th、CMOS 17th、Springer/Elsevier 作者指南、中华医学会系列杂志编排规范），详见 skills/writing-standards/reference/rules.md。
+规范条文依据国标、行业标准与权威手册整理（GB/T 15834—2011、GB/T 15835—2011、GB/T 7714—2015、GB/T 7713.1/7713.2、GB 3102.11—1993、CY/T 154—2017、CY/T 170/171—2019、GB 3100/3101—1993、GB/T 3358.1—2009、《第一批异形词整理表》、APA 7th、CMOS 17th、Springer/Elsevier 作者指南、中华医学会系列杂志编排规范），详见 skills/writing-standards/reference/rules.md。
 
 ## 安装（推荐：skills CLI）
 
@@ -53,7 +53,7 @@ npx github:liuliwang/writing-standards --dir ~/.config/opencode/skills
 
 ## 修改规范条文
 
-编辑 skills/writing-standards/reference/rules.md（唯一规范源，含第 10 节图表与表格要求），提交后各机器重跑安装命令即同步。改动较大时同步递增 package.json 的 version。
+编辑 skills/writing-standards/reference/rules.md（唯一规范源，含第 10 节图表与表格、第 11 节公式与交叉引用），提交后各机器重跑安装命令即同步。改动较大时同步递增 package.json 的 version。
 
 ## 本地开发
 
