@@ -1,0 +1,20 @@
+{
+  "name": "writing-standards",
+  "version": "2.0.0",
+  "description": "Installer for the writing-standards OpenCode skill: Chinese/English academic writing standards (punctuation, mixed-script typesetting, logical connectives, expression, GB/T 7714 citations) installed into AGENTS.md / CLAUDE.md.",
+  "bin": {
+    "writing-standards": "bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "skills/"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<your-github-username>/writing-standards.git"
+  }
+}
