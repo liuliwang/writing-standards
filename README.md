@@ -6,7 +6,21 @@ OpenCode 技能 + 安装器：把中英文学术写作规范（中文标点、�
 
 规范条文依据国标、行业标准与权威手册整理（GB/T 15834—2011、GB/T 15835—2011、GB/T 7714—2015、GB/T 7713.1—2006、CY/T 154—2017、CY/T 170/171—2019、GB 3100/3101—1993、GB/T 3358.1—2009、《第一批异形词整理表》、APA 7th、CMOS 17th、Springer/Elsevier 作者指南、中华医学会系列杂志编排规范），详见 skills/writing-standards/reference/rules.md。
 
-## 安装
+## 安装（推荐：skills CLI）
+
+使用 Vercel 出品的 skills CLI（配套 registry：skills.sh）安装与更新：
+
+```sh
+# 全局安装到 OpenCode 技能目录（~/.config/opencode/skills）
+npx skills add liuliwang/writing-standards -g -a opencode -y
+
+# 更新（更新全部已装技能）
+npx skills update -y
+```
+
+本仓库布局 skills/writing-standards/SKILL.md 即 skills CLI 的标准容器布局，可直接识别。
+
+## 备选安装方式（仓库自带安装器）
 
 npm 12+ 默认禁用了 git 类型依赖（EALLOWGIT），二选一处理后再运行：
 
@@ -25,19 +39,10 @@ npx github:liuliwang/writing-standards
 npx github:liuliwang/writing-standards --dir ~/.config/opencode/skills
 ```
 
-> 要求仓库为 public（npx 拉取 GitHub 仓库不支持私有仓库认证）。
-> 不想放行 git 依赖时，可用一行克隆安装（装完自动清理）：
+> 要求仓库为 public。不想放行 git 依赖时，可用一行克隆安装（装完自动清理）：
 > ```sh
 > git clone https://github.com/liuliwang/writing-standards.git /tmp/ws-install && node /tmp/ws-install/bin/cli.js && rm -rf /tmp/ws-install
 > ```
-
-## 更新
-
-```sh
-npx --yes --allow-git=all github:liuliwang/writing-standards --force
-```
-
-（已按安装节方式二持久化放行的，直接 npx github:liuliwang/writing-standards --force。）覆盖复制为最新版。
 
 ## 使用（技能本身）
 
