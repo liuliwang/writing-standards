@@ -1,68 +1,83 @@
 # writing-standards
 
-OpenCode 技能 + 安装器：把中英文学术写作规范（中文标点、数字用法、量和单位、中英混排、中英表达、统计结果报告、学术图表规范、公式与交叉引用、多文体结构与写作逻辑——论文/综述/报告/会议/技术文档/书籍专著、版式与排版——含图片放置、GB/T 7714—2015 参考文献著录、学术诚信）安装到 AGENTS.md / CLAUDE.md 的带标记区块中，装好后持续生效、幂等可更新。
+中英文学术写作规范与图表排版要求工具：一次安装进 AGENTS.md / CLAUDE.md，装好后持续生效、幂等可更新。OpenCode 技能，配套 npx 安装器。
 
-内置第二个工作流——绘图与做表要求提供：在需要绘制图表或制作表格时，基于规范第 10～11、13 节输出针对性要求清单（规格参数、设计要求、验收清单），供任何执行者使用；本技能不代为绘图做表。
+## 功能
 
-规范条文依据国标、行业标准与权威手册整理（GB/T 15834—2011、GB/T 15835—2011、GB/T 7714—2015、GB/T 7713.1 现行版/7713.2/7713.3、GB 3102.11—1993、GB/T 788—1999、CY/T 118—123/154/170/171/266 系列、CY/T 120—2015、GB 3100/3101—1993、GB/T 3358.1—2009、《第一批异形词整理表》、《图书编校质量差错认定细则》、余光中/思果翻译论述、Pinkham《中式英语之鉴》、Garner 2022、Williams《Style》、Swales CARS、APA 7th、CMOS 17th、Springer/Elsevier/IEEE/ACS/APS/Wiley/T&F 作者指南、Tufte、Nature Methods Points of View、WCAG 2.1、Diátaxis、中华医学会系列杂志编排规范），详见 skills/writing-standards/reference/rules.md。
+技能含两个工作流，在 OpenCode 中输入 @writing-standards 触发，按请求自动分流：
 
-## 安装（推荐：skills CLI）
+### 工作流 A · 安装写作规范
 
-使用 Vercel 出品的 skills CLI（配套 registry：skills.sh）安装与更新：
+把 15 节完整规范写入你选定的指令文件（项目级 AGENTS.md / CLAUDE.md 或全局），带标记区块、重复调用只更新区块：
+
+| 分区 | 覆盖内容 | 主要依据 |
+|---|---|---|
+| 写作基础（1～4 节） | 中文标点 · 数字用法 · 量和单位 · 中英混排 | GB/T 15834、GB/T 15835、GB 3100/3101、CY/T 154 |
+| 语言表达（5～9 节） | 中文表达（语病判定、翻译腔防治、异形词）· 逻辑关系词 · 英文表达（Chinglish、名词化、CARS 缺口模型）· 英文标点 · 统计结果报告 | 编校差错认定细则、余光中/思果、Pinkham、Garner、Williams、GB/T 3358.1 |
+| 图表公式（10～11 节） | 图表设计原则 · 三线表 · 色彩可及性 · 提交规格 · 图型选择 · 数学符号正斜体 · 公式排版 · 交叉引用（Word/LaTeX 机制） | CY/T 170/171、Springer/Elsevier/IEEE/ACS/APS 指南、Tufte、WCAG 2.1、GB 3102.11、GB/T 7713.2 |
+| 结构版式（12～13 节） | 论文/综述/报告/会议/技术文档/书籍专著六类文体结构 · 版面开本 · 字体字号页码 · 孤行分页 · 图片放置（按规格/用途/美化）· LaTeX 与 Word 排版实现 | GB/T 7713 系列、CY/T 118～123、Diátaxis、GB/T 788、CY/T 120 |
+| 学术规范（14～15 节） | 参考文献著录（GB/T 7714 顺序编码制，含示例）· 学术诚信（引用/转述/AI 披露） | GB/T 7714、Springer/Elsevier 政策 |
+
+### 工作流 B · 绘图/做表要求清单
+
+本技能不代为绘图做表。当你说"我要画一张投稿 Elsevier 的双栏折线图""做一个学位论文三线表"时，它确认载体（LaTeX/Word）、目标出版物与栏式后，输出一份针对性要求清单——具体规格数字（栏宽 mm、字号 pt、分辨率 dpi）+ 设计要求 + 验收清单——供你交予任何执行者（本人、绘图工具、其他智能体）使用。
+
+## 快速开始
 
 ```sh
-# 全局安装到 OpenCode 技能目录（~/.config/opencode/skills）
+# 安装（推荐：Vercel skills CLI，全局装入 OpenCode 技能目录）
 npx skills add liuliwang/writing-standards -g -a opencode -y
 
-# 更新（更新全部已装技能）
+# 更新全部已装技能
 npx skills update -y
+
+# 卸载
+npx skills remove writing-standards
 ```
 
-本仓库布局 skills/writing-standards/SKILL.md 即 skills CLI 的标准容器布局，可直接识别。
+本仓库 skills/writing-standards/SKILL.md 即 skills CLI 的标准容器布局，可直接识别（registry：skills.sh）。
 
-## 备选安装方式（仓库自带安装器）
+## 使用方法
 
-npm 12+ 默认禁用了 git 类型依赖（EALLOWGIT），二选一处理后再运行：
+在任意项目打开 OpenCode：
+
+- 输入 @writing-standards 或说"安装写作规范"——技能探测项目级与全局指令文件，列出候选让你勾选，预览完整规范块后写入；再次调用即同步最新条文
+- 说"给我……图的绘图要求""做一个三线表的要求"——输出工作流 B 的针对性要求清单
+
+安装进 AGENTS.md 的规范以标记区块管理（<!-- writing-standards:start vN --> … <!-- writing-standards:end -->），不影响文件其余内容，删除区块即卸载规范。
+
+## 备选安装（仓库自带安装器）
+
+npm 12+ 默认禁用 git 类型依赖（EALLOWGIT），二选一处理后再运行：
 
 ```sh
 # 方式一：单次放行（必须写 =all，裸 --allow-git 无效）
 npx --yes --allow-git=all github:liuliwang/writing-standards
 
-# 方式二：持久化放行到用户级 .npmrc（之后所有 npx 不再需要 flag）
+# 方式二：持久化放行到用户级 .npmrc
 npm config set allow-git=all --location=user
 npx github:liuliwang/writing-standards
 ```
 
-默认安装到 ~/.agents/skills/writing-standards/。自定义目录：
+默认装入 ~/.agents/skills/writing-standards/，可用 --dir 自定义。或一行克隆安装（免放行，装完自动清理）：
 
 ```sh
-npx github:liuliwang/writing-standards --dir ~/.config/opencode/skills
+git clone https://github.com/liuliwang/writing-standards.git /tmp/ws-install && node /tmp/ws-install/bin/cli.js && rm -rf /tmp/ws-install
 ```
-
-> 要求仓库为 public。不想放行 git 依赖时，可用一行克隆安装（装完自动清理）：
-> ```sh
-> git clone https://github.com/liuliwang/writing-standards.git /tmp/ws-install && node /tmp/ws-install/bin/cli.js && rm -rf /tmp/ws-install
-> ```
-
-## 使用（技能本身）
-
-在任意项目中打开 OpenCode，输入 @writing-standards，技能按请求分流为两个工作流：
-
-- **安装规范**：说"安装写作规范"——探测项目级 AGENTS.md / CLAUDE.md 与全局 ~/.config/opencode/AGENTS.md，经你勾选、预览后把完整规范写入带标记区块（<!-- writing-standards:start vN --> … <!-- writing-standards:end -->），重复调用只更新区块内内容
-- **提供绘图/做表要求**：说"我要画一张……图""做一个三线表"——确认载体（LaTeX/Word）、目标出版物与栏式后，输出针对性要求清单（具体规格数字 + 设计要求 + 验收清单）；本技能不产出绘图代码与成品
 
 ## 修改规范条文
 
-编辑 skills/writing-standards/reference/rules.md（唯一规范源，15 节：写作 9 节 + 图表 + 公式交叉引用 + 多文体结构 + 版式排版 + 引用 + 诚信），提交后各机器重跑安装命令即同步。改动较大时同步递增 package.json 的 version。
+编辑 skills/writing-standards/reference/rules.md（唯一规范源，15 节），提交后各机器重跑更新命令即同步；改动较大时同步递增 package.json 的 version。
 
-## 本地开发
+## 版本记录
 
-```sh
-git clone https://github.com/liuliwang/writing-standards.git
-cd writing-standards
-node bin/cli.js          # 装到 ~/.agents/skills
-node bin/cli.js --dir /tmp/test-skills   # 装到试验目录
-```
+- 3.4 —— 新增版式与排版节（版面、字体页码、图片放置、LaTeX/Word 实现）；GB/T 7713.1 引用更新为现行版
+- 3.3 —— 中英表达扩充（语病、翻译腔、Chinglish、易混淆词）；结构节重组为多文体（含书籍专著）
+- 3.2 —— 新增公式与交叉引用节（符号正斜体、排版、Word/LaTeX 交叉引用机制）
+- 3.1 —— 图表要求并入规范第 10 节并大幅扩充；工作流 B 重定义为要求提供者
+- 3.0 —— 双工作流形态：规范安装器 + 图表制作
+- 2.0 —— 规则全面校订（国标原文级核对）
+- 1.0 —— 初始版本（八节基础规范）
 
 ## License
 
