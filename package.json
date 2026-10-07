@@ -1,7 +1,7 @@
 {
   "name": "writing-standards",
-  "version": "3.3.0",
-  "description": "Installer for the writing-standards OpenCode skill: Chinese/English academic writing standards (punctuation, digits, quantities & units, mixed-script typesetting, expression, statistical reporting, figures & tables, formulas & cross-references, multi-genre structure & logic, GB/T 7714 citations, integrity) installed into AGENTS.md / CLAUDE.md, plus an on-demand figure/table requirements workflow.","  "bin": {
+  "version": "3.4.0",
+  "description": "Installer for the writing-standards OpenCode skill: Chinese/English academic writing standards (punctuation, digits, quantities & units, mixed-script typesetting, expression, statistical reporting, figures & tables, formulas & cross-references, multi-genre structure & logic, layout & typesetting, GB/T 7714 citations, integrity) installed into AGENTS.md / CLAUDE.md, plus an on-demand figure/table requirements workflow.","  "bin": {
     "writing-standards": "bin/cli.js"
   },
   "files": [
